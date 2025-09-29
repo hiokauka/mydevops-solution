@@ -19,10 +19,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
-      - name: Build Docker image
-        run: |
-          docker build -t ghcr.io/${{ github.actor }}/virtualletters-api:latest -f VirtualLetters.Api/Dockerfile .
+      - name: Change directory to backend
+        run: 
+            cd backend && docker build -t ghcr.io/hiokauka/virtualletters-api:latest -f VirtualLetters.Api/Dockerfile .
 
+          
       - name: Push Docker image
         run: |
           docker push ghcr.io/${{ github.actor }}/virtualletters-api:latest
