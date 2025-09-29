@@ -21,7 +21,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.actor }}/virtualletters-api:latest ./backend/VirtualLetters.Api
+          docker build -t ghcr.io/${{ github.actor }}/virtualletters-api:latest -f VirtualLetters.Api/Dockerfile 
 
       - name: Push Docker image
         run: |
